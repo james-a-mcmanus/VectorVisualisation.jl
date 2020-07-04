@@ -1,0 +1,16 @@
+name = "VectorVisualisation"
+uuid = "8c9cb426-07f4-49a4-9af8-21d094d87a9c"
+authors = ["james-a-mcmanus <jmcmanus.spam@gmail.com> and contributors"]
+version = "0.1.0"
+
+[deps]
+Makie = "ee78f7c6-11fb-53f2-987a-cfe4a2b5a57a"
+
+[compat]
+julia = "1"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
