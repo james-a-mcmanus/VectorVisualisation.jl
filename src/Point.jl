@@ -1,4 +1,4 @@
-import Base: size, show, getindex, setindex!, zero, -
+import Base: size, show, getindex, setindex!, zero, -, +
 
 struct Point{T,S} <: AbstractArray{T,1}
 	data::SArray{Tuple{S},T,1,S}
@@ -15,3 +15,6 @@ Base.setindex!(p::Point, f, i) = setindex!(p.data, f, i)
 Base.zero(p::Point{T,S}) where {T,S} = Point(zeros(SVector{S,T}))
 
 Base.:-(p::Point) = Point(-p.data)
+Base.:+(p::Point, a::AbstractArray) = length(p) == length(a) ? Point(p.data + a) : error("arrays are of different lengths")
+
+convert(::Type{MakiePoint}, p::Point) = MakiePoint(p.data)
